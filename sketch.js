@@ -17,7 +17,7 @@ var mY  = 0
 var timer = 1000
 var sidebarSize = 10
 var banner;
-var subtexts = ["the z is silent", "at least its not neon blue with no CSS", "[witty quip]", "just click the things ok?", "naming things is hard", "cheesemans.github.io was taken D:", "best website on the planet", "endorsed by the Liechtensteinian government"]
+var subtexts = ["the z is silent", "at least its not neon blue with no CSS", "[witty quip]", "just click the things ok?", "naming things is hard", "cheesemans.github.io was taken D:", "best website on the planet", "endorsed by the Liechtensteinian government", "boss1986", "it looks kind of empty", "not a true crime podcast", "I am wanted in 186 different countries"]
 var st
 
 function setup() {

@@ -15,14 +15,19 @@ var mouseDown = false
 var mX = 0
 var mY  = 0
 var timer = 1000
+var sidebarSize = 10
+var banner;
+var subtexts = ["the z is silent", "at least its not neon blue with no CSS", "[witty quip]", "just click the things ok?", "naming things is hard", "cheesemans.github.io was taken D:", "best website on the planet", "endorsed by the Liechtensteinian government"]
+var st
 
 function setup() {
   // put setup code here
-  canvas = createCanvas(w, h*4);
+  canvas = createCanvas(w, h);
   canvas.position(0,0);
   textAlign(CENTER, CENTER);
   noCursor();
-
+  rotspeed *= random(0.9, 3);
+  st = random(subtexts)
 
   cursorruntime();
 
@@ -44,13 +49,16 @@ function draw() {
   fill(255)
   stroke(155)
   textFont(mon);
-  textSize(70)
-  text("CheeseMans", w/2, 35)
+  textSize(15)
+  text(st, w/2, banner.height*2 - 15)
+  image(banner, w/2 - banner.width/2, banner.height/2 + sin(frameCount/10))
   t += taccel/trange;
   
   el1.runtime();
   el2.runtime();
-
+  fill(60)
+  rect(w - sidebarSize, 0, sidebarSize+10, h);
+  rect(0, 0, sidebarSize, h);
 
 
 
@@ -111,8 +119,9 @@ function cosinlaw(a,b,g){
 
 function preload(){
   mon=loadFont("Montserrat-Medium.ttf");
-  el1 = new element("elementixbannercropped.png", 100, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
-  el2 = new element("siegebannercropped.png", 350, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
+  banner = loadImage("CheeseMansBanner+.png")
+  el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
+  el2 = new element("siegebannercropped.png", 350, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
 
 }
 
@@ -124,14 +133,14 @@ function crop(image, x, y, w, h) {
 
 class element{
 
-  constructor(imgtxt, yv, hv, url) {
+  constructor(imgtxt, yv, hv, mv, url) {
     this.y = yv;
     this.x = 0
-    this.tintval = 255
-    this.targtint = 255
+    this.targx = 0
     this.h = hv
     this.url = url
     this.img = loadImage(imgtxt)
+    this.m = mv
   }
 
   mouseOver(){
@@ -144,7 +153,7 @@ class element{
 
   runtime()
   {
-    this.tintval += (this.targtint - this.tintval)/10
+    this.x += (this.targx - this.x)/10
     if(this.mouseOver())
     {
       //tint(this.tintval);
@@ -153,11 +162,11 @@ class element{
         timer = 10000000;
         window.open(this.url)
       }
-      this.targtint = 200
+      this.targx = -10*this.m
     }
     else
     {
-      this.targtint = 255
+      this.targx = 0
     }
     image(this.img, this.x, this.y);
     //noTint();

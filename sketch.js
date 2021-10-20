@@ -11,7 +11,7 @@ var rotspeed = 3
 var bpm = 131
 var timer = 0
 var el1
-
+var mouseDown = false
 
 function setup() {
   // put setup code here
@@ -39,9 +39,11 @@ function draw() {
   stroke(155)
   textFont(mon);
   textSize(70)
+  text("CheeseMans", w/2, 35)
   t += taccel/trange;
   
   el1.runtime();
+  el2.runtime();
 
 
 
@@ -74,37 +76,18 @@ function cursorruntime(){
 
 function mousePressed() {
   
+  mouseDown = true;
   targrange = inittarg/3
-  timer = 0
-  if(el1.mouseOver()){
-
-    
-
-  }
+  timer = 0;
   return false;
 }
 
 function mouseReleased() {
   
+  mouseDown = false;
   targrange = inittarg
   return false;
 }
-
-function bulkdownload(titles){
-  titles = titles || [];
-  if ( titles.length > 0 ) {
-      var url = '';
-      var len = titles.length;
-      for ( var ii = 0; ii < len; ii++ ) {
-          url = url + 'titles=' + titles[ii];
-          if ( ii < len-1 ) {
-              url = url + '&';
-          }
-      }
-      $window.open(url);
-  }
-};
-
 function textprint(tex, size, posx, posy, col, fon)
 {
   fill(col)
@@ -120,18 +103,27 @@ function cosinlaw(a,b,g){
 
 function preload(){
   mon=loadFont("Montserrat-Medium.ttf");
-  el1 = new element("elementixbanner.png", 0)
+  el1 = new element("elementixbannercropped.png", 100, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
+  el2 = new element("siegebannercropped.png", 350, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
 
+}
+
+function crop(image, x, y, w, h) {
+  var cropped = createImage(w, h);
+  cropped.copy(image, x, y, x + w, y + h, 0, 0, x + w, y + h)
+  return cropped;
 }
 
 class element{
 
-  constructor(imgtxt, yv) {
-    this.img = loadImage(imgtxt)
+  constructor(imgtxt, yv, hv, url) {
     this.y = yv;
     this.x = 0
     this.tintval = 255
     this.targtint = 255
+    this.h = hv
+    this.url = url
+    this.img = loadImage(imgtxt)
   }
 
   mouseOver(){
@@ -139,22 +131,27 @@ class element{
     stroke(155)
     textFont(mon);
     textSize(70)
-    return (mouseX > -1 && mouseX < 1920 && mouseY > this.y && mouseY < this.y+500)
+    return (mouseX > -1 && mouseX < 1920 && mouseY > this.y && mouseY < this.y+this.h)
   }
 
   runtime()
   {
     this.tintval += (this.targtint - this.tintval)/10
-    image(this.img, this.x, this.y)
-    
     if(this.mouseOver())
     {
+      tint(this.tintval);
+      if(mouseDown){
+        window.open(el1.url)
+      }
       this.targtint = 200
     }
     else
     {
       this.targtint = 255
     }
+    image(this.img, this.x, this.y);
+    noTint();
+    
   }
 
 }

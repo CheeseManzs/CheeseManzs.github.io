@@ -12,6 +12,8 @@ var bpm = 131
 var timer = 0
 var el1
 var mouseDown = false
+var mX = 0
+var mY  = 0
 
 function setup() {
   // put setup code here
@@ -59,6 +61,8 @@ function cursorruntime(){
   fill(0)
   strokeWeight(1.5)
   stroke(255)
+  mX += (mouseX - mX)/5
+  mY += (mouseY - mY)/5
   angle1 = (1./3)*(2*Math.PI)
   angle2 = (2./3)*(2*Math.PI)
   point1x = cursorrange*sin(0)
@@ -68,7 +72,7 @@ function cursorruntime(){
   point3x = cursorrange*sin(angle2)
   point3y = cursorrange*cos(angle2)
   push()
-  translate(mouseX, mouseY)
+  translate(mX, mY)
   rotate(radians(frameCount*rotspeed))
   triangle(point1x,point1y, point2x, point2y, point3x, point3y);
   pop()
@@ -139,7 +143,7 @@ class element{
     this.tintval += (this.targtint - this.tintval)/10
     if(this.mouseOver())
     {
-      tint(this.tintval);
+      //tint(this.tintval);
       if(mouseDown){
         window.open(el1.url)
       }
@@ -150,7 +154,7 @@ class element{
       this.targtint = 255
     }
     image(this.img, this.x, this.y);
-    noTint();
+    //noTint();
     
   }
 

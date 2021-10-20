@@ -25,11 +25,11 @@ function setup() {
   canvas = createCanvas(w, h);
   canvas.position(0,0);
   textAlign(CENTER, CENTER);
-  noCursor();
+  //noCursor();
   rotspeed *= random(0.9, 3);
   st = random(subtexts)
 
-  cursorruntime();
+  //cursorruntime();
 
 }
 
@@ -66,7 +66,7 @@ function draw() {
 
 
   //must always go last
-  cursorruntime();
+  //cursorruntime();
 
 
 }

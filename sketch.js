@@ -56,6 +56,8 @@ function draw() {
   
   el1.runtime();
   el2.runtime();
+  el3.runtime();
+  
   fill(60)
   rect(w - sidebarSize, 0, sidebarSize+10, h);
   rect(0, 0, sidebarSize, h);
@@ -124,6 +126,7 @@ function preload(){
   var s = lengthratio*w
   el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
   el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
+  el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
 
 }
 

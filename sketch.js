@@ -120,8 +120,10 @@ function cosinlaw(a,b,g){
 function preload(){
   mon=loadFont("Montserrat-Medium.ttf");
   banner = loadImage("CheeseMansBanner+.png")
+  var lengthratio = 250/1920
+  var s = lengthratio*w
   el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
-  el2 = new element("siegebannercropped.png", 350, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
+  el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
 
 }
 
@@ -141,6 +143,11 @@ class element{
     this.url = url
     this.img = loadImage(imgtxt)
     this.m = mv
+    var lengthratio = this.h/1920
+    this.img.resize(w, lengthratio*w)
+    console.log(w);
+    console.log(lengthratio*w)
+    
   }
 
   mouseOver(){
@@ -148,11 +155,13 @@ class element{
     stroke(155)
     textFont(mon);
     textSize(70)
-    return (mouseX > -1 && mouseX < 1920 && mouseY > this.y && mouseY < this.y+this.h)
+    var lengthratio = this.h/1920
+    return (mouseX > -1 && mouseX < w && mouseY > this.y && mouseY < this.y+lengthratio*w)
   }
 
   runtime()
   {
+    
     this.x += (this.targx - this.x)/10
     if(this.mouseOver())
     {
@@ -168,7 +177,9 @@ class element{
     {
       this.targx = 0
     }
+    var lengthratio = this.h/1920
     image(this.img, this.x, this.y);
+    this.img.resize(w, lengthratio*w);
     //noTint();
     
   }

@@ -14,6 +14,7 @@ var el1
 var mouseDown = false
 var mX = 0
 var mY  = 0
+var timer = 1000
 
 function setup() {
   // put setup code here
@@ -30,6 +31,9 @@ function setup() {
 function draw() {
   // put drawing code here
   var time = millis()
+  if(timer > 0){
+    timer--;
+  }
   cursorrange += (targrange - cursorrange)/10
   timer += deltaTime/1000
   if(timer > 60/bpm){
@@ -144,8 +148,10 @@ class element{
     if(this.mouseOver())
     {
       //tint(this.tintval);
-      if(mouseDown){
-        window.open(el1.url)
+      if(mouseDown && timer <= 0){
+        mouseDown = false
+        timer = 10000000;
+        window.open(this.url)
       }
       this.targtint = 200
     }

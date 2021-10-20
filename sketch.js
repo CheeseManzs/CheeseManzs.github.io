@@ -125,10 +125,10 @@ function preload(){
   banner = loadImage("CheeseMansBanner+.png")
   var lengthratio = 250/1920
   var s = lengthratio*w
-  el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
-  el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
-  el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip")
-  el4 = new element("extrasbanner.png", 100+s*3, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip")
+  el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip", true)
+  el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip", true)
+  el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip", true)
+  el4 = new element("extrasbanner.png", 100+s*3, 250, 1, "old/index.html", false)
 
 }
 
@@ -140,7 +140,7 @@ function crop(image, x, y, w, h) {
 
 class element{
 
-  constructor(imgtxt, yv, hv, mv, url) {
+  constructor(imgtxt, yv, hv, mv, url, newtab) {
     this.y = yv;
     this.x = 0
     this.targx = 0
@@ -148,6 +148,7 @@ class element{
     this.url = url
     this.img = loadImage(imgtxt)
     this.m = mv
+    this.nt = newtab
     var lengthratio = this.h/1920
     this.img.resize(w, lengthratio*w)
     console.log(w);
@@ -174,7 +175,14 @@ class element{
       if(mouseDown && timer <= 0){
         mouseDown = false
         timer = 10000000;
-        window.open(this.url)
+        if(this.nt)
+        {
+          window.open(this.url)
+        }else
+        {
+          window.open(this.url, "_self")
+        }
+        
       }
       this.targx = -10*this.m
     }

@@ -1,5 +1,5 @@
 var w = window.innerWidth;
-var h = window.innerHeight; 
+var h = window.innerHeight + 200; 
 var t = 0;
 var taccel = 0.3
 var trange = 10
@@ -57,6 +57,7 @@ function draw() {
   el1.runtime();
   el2.runtime();
   el3.runtime();
+  el4.runtime();
 
   fill(60)
   rect(w - sidebarSize, 0, sidebarSize+10, h);
@@ -127,6 +128,7 @@ function preload(){
   el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
   el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
   el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip")
+  el4 = new element("extrasbanner.png", 100+s*3, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip")
 
 }
 

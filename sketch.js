@@ -108,7 +108,7 @@ function cosinlaw(a,b,g){
 function preload(){
   mon=loadFont("Montserrat-Medium.ttf");
   el1 = new element("elementixbannercropped.png", 100, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
-  el2 = new element("siegebannercropped.png", 350, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip")
+  el2 = new element("siegebannercropped.png", 350, 250, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip")
 
 }
 

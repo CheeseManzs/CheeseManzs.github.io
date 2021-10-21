@@ -76,8 +76,8 @@ function cursorruntime(){
   fill(0)
   strokeWeight(1.5)
   stroke(255)
-  mX += (mouseX - mX)/5
-  mY += (mouseY - mY)/5
+  mX += (mouseX - mX)/1
+  mY += (mouseY - mY)/1
   angle1 = (1./3)*(2*Math.PI)
   angle2 = (2./3)*(2*Math.PI)
   point1x = cursorrange*sin(0)
@@ -88,7 +88,7 @@ function cursorruntime(){
   point3y = cursorrange*cos(angle2)
   push()
   translate(mX, mY)
-  rotate(radians(frameCount*rotspeed))
+  rotate(radians(60))
   triangle(point1x,point1y, point2x, point2y, point3x, point3y);
   pop()
 }

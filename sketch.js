@@ -126,8 +126,8 @@ function preload(){
   banner = loadImage("CheeseMansBanner+.png")
   var lengthratio = 250/1920
   var s = lengthratio*w
-  el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip", true)
-  el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip", true)
+  el1 = new element("elementixbannercropped_dark.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip", true)
+  el2 = new element("siegebannercropped_dark.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip", true)
   el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip", true)
   el4 = new element("3subanner.png", 100+s*3, 250, 1, "https://drive.google.com/file/d/1hHFZDkHOLX6tH9FbVl_LtNi1quknuk7E/view?usp=sharing", true)
   el5 = new element("extrasbanner.png", 100+s*4, 250, 1, "old/index.html", false)

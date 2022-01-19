@@ -1,5 +1,5 @@
 var w = window.innerWidth;
-var h = window.innerHeight + 200; 
+var h = window.innerHeight + 400; 
 var t = 0;
 var taccel = 0.3
 var trange = 10
@@ -58,6 +58,7 @@ function draw() {
   el2.runtime();
   el3.runtime();
   el4.runtime();
+  el5.runtime();
 
   fill(60)
   rect(w - sidebarSize, 0, sidebarSize+10, h);
@@ -128,8 +129,8 @@ function preload(){
   el1 = new element("elementixbannercropped.png", 100, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/f071d9258492f0825d786c7962cc6e714b9096da/Downloads/Elementix%20Launcher.zip", true)
   el2 = new element("siegebannercropped.png", 100+s, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Siege%20Storm.zip", true)
   el3 = new element("rocketbanner.png", 100+s*2, 250, 1, "https://github.com/CheeseManzs/CheeseManzs.github.io/raw/main/Downloads/Rocket%20Rush.zip", true)
-  el3 = new element("3subanner.png", 100+s*3, 250, 1, "https://drive.google.com/file/d/1hHFZDkHOLX6tH9FbVl_LtNi1quknuk7E/view?usp=sharing", true)
-  el4 = new element("extrasbanner.png", 100+s*4, 250, 1, "old/index.html", false)
+  el4 = new element("3subanner.png", 100+s*3, 250, 1, "https://drive.google.com/file/d/1hHFZDkHOLX6tH9FbVl_LtNi1quknuk7E/view?usp=sharing", true)
+  el5 = new element("extrasbanner.png", 100+s*4, 250, 1, "old/index.html", false)
 
 }
 

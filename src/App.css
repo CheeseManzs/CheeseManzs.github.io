@@ -28,6 +28,10 @@
   
 }
 
+.appIcon {
+  animation: fade-in forwards 1s ease-out;
+}
+
 .floater {
   display:grid;
 
@@ -63,7 +67,7 @@
 .banner {
   width: 101vw;
   margin:auto;
-  transform: translateX(-1%);
+  transform: scale(80%);
   transition: all 0.3s ease;
   image-rendering: crisp-edges;
   vertical-align:middle;
@@ -71,8 +75,9 @@
 
 .banner:hover
 {
-  transform: translateX(0%);
   opacity: 0.8;
+  transform: scale(100%);
+  filter: blur(1.5px)
 }
 
 @keyframes App-logo-spin {
@@ -85,10 +90,10 @@
 }
 @keyframes slide-in {
   from {
-    transform:translateX(0vw);
+    transform:scale(1);
   }
   to {
-    transform: translateX(2vw);
+    transform:scale(1.5);
   }
 }
 
